@@ -28,6 +28,19 @@ pytest tests/ -v
 3. Write tests first
 4. Submit PR with clear description
 
+## 🔗 Pre-Commit Hooks (Required)
+
+All developers **must** install and run pre-commit hooks before committing. This ensures:
+- All markdown links are validated
+- Code quality standards are enforced
+
+### Setup
+
+```bash
+uv pip install pre-commit
+pre-commit install
+```
+
 ## License
 
 MIT License
