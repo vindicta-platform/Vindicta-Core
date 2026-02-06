@@ -23,6 +23,7 @@ nav:
   - Home: index.md
   - Getting Started: getting-started.md
   - API Reference: api-reference.md
+  - Models: models.md
   - Configuration: configuration.md
   - Contributing: contributing.md
 
