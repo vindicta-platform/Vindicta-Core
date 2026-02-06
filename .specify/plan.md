@@ -1,8 +1,8 @@
 # Implementation Plan: Domain Model Refactoring
 
-**Spec Reference:** [spec.md](file:///c:/Users/bfoxt/.gemini/antigravity/playground/primordial-pulsar/Vindicta-Core/.specify/spec.md)  
-**Issue:** [#4 - Domain Model Refactoring](https://github.com/vindicta-platform/Vindicta-Core/issues/4)  
-**Milestone:** v0.2.0 Refactor  
+**Spec Reference:** [spec.md](file:///c:/Users/bfoxt/.gemini/antigravity/playground/primordial-pulsar/Vindicta-Core/.specify/spec.md)
+**Issue:** [#4 - Domain Model Refactoring](https://github.com/vindicta-platform/Vindicta-Core/issues/4)
+**Milestone:** v0.2.0 Refactor
 
 ---
 
@@ -81,7 +81,7 @@ from vindicta_core.gas_tank import GasTankState, CostEstimate
 
 __all__ = [
     "VindictaModel", "TimestampedModel", "IdentifiableModel",
-    "EntropyProof", "DiceResult", 
+    "EntropyProof", "DiceResult",
     "GasTankState", "CostEstimate",
 ]
 ```

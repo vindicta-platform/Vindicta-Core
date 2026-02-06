@@ -1,5 +1,5 @@
 # ADR-XXX: [Title]
-**Status**: Proposed | Accepted | Deprecated | Superseded  
+**Status**: Proposed | Accepted | Deprecated | Superseded
 **Date**: YYYY-MM-DD
 ## Context
 ## Decision

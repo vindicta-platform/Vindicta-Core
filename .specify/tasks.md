@@ -1,15 +1,15 @@
 # Tasks: Domain Model Refactoring
 
-**Plan Reference:** [plan.md](file:///c:/Users/bfoxt/.gemini/antigravity/playground/primordial-pulsar/Vindicta-Core/.specify/plan.md)  
-**Issue:** [#4](https://github.com/vindicta-platform/Vindicta-Core/issues/4)  
+**Plan Reference:** [plan.md](file:///c:/Users/bfoxt/.gemini/antigravity/playground/primordial-pulsar/Vindicta-Core/.specify/plan.md)
+**Issue:** [#4](https://github.com/vindicta-platform/Vindicta-Core/issues/4)
 
 ---
 
 ## Task Breakdown
 
 ### T-001: Create `base/` Subpackage
-**Priority:** P0 (Foundation - must be first)  
-**Estimate:** 15 min  
+**Priority:** P0 (Foundation - must be first)
+**Estimate:** 15 min
 
 - [ ] Create `src/vindicta_core/base/__init__.py`
 - [ ] Move `VindictaModel`, `TimestampedModel`, `IdentifiableModel` from `models.py`
@@ -19,9 +19,9 @@
 ---
 
 ### T-002: Create `dice/` Subpackage
-**Priority:** P1  
-**Estimate:** 20 min  
-**Depends on:** T-001  
+**Priority:** P1
+**Estimate:** 20 min
+**Depends on:** T-001
 
 - [ ] Create `src/vindicta_core/dice/__init__.py`
 - [ ] Move `EntropyProof`, `DiceResult` from `models.py`
@@ -32,9 +32,9 @@
 ---
 
 ### T-003: Create `gas_tank/` Subpackage
-**Priority:** P1  
-**Estimate:** 20 min  
-**Depends on:** T-001  
+**Priority:** P1
+**Estimate:** 20 min
+**Depends on:** T-001
 
 - [ ] Create `src/vindicta_core/gas_tank/__init__.py`
 - [ ] Move `GasTankState`, `CostEstimate` from `models.py`
@@ -45,9 +45,9 @@
 ---
 
 ### T-004: Create `oracle/` Subpackage
-**Priority:** P1  
-**Estimate:** 10 min  
-**Depends on:** None  
+**Priority:** P1
+**Estimate:** 10 min
+**Depends on:** None
 
 - [ ] Create `src/vindicta_core/oracle/__init__.py`
 - [ ] Move `OracleProtocol` from `interfaces.py`
@@ -56,9 +56,9 @@
 ---
 
 ### T-005: Refactor `models.py` to Re-export Shim
-**Priority:** P2  
-**Estimate:** 10 min  
-**Depends on:** T-001, T-002, T-003  
+**Priority:** P2
+**Estimate:** 10 min
+**Depends on:** T-001, T-002, T-003
 
 - [ ] Replace model definitions with imports from new subpackages
 - [ ] Define `__all__` with all original exports
@@ -67,9 +67,9 @@
 ---
 
 ### T-006: Refactor `interfaces.py` to Re-export Shim
-**Priority:** P2  
-**Estimate:** 10 min  
-**Depends on:** T-002, T-003, T-004  
+**Priority:** P2
+**Estimate:** 10 min
+**Depends on:** T-002, T-003, T-004
 
 - [ ] Replace interface definitions with imports from new subpackages
 - [ ] Define `__all__` with all original exports
@@ -78,9 +78,9 @@
 ---
 
 ### T-007: Update Package `__init__.py`
-**Priority:** P2  
-**Estimate:** 5 min  
-**Depends on:** T-001, T-002, T-003, T-004  
+**Priority:** P2
+**Estimate:** 5 min
+**Depends on:** T-001, T-002, T-003, T-004
 
 - [ ] Add new subpackages to exports (optional)
 - [ ] Verify version string unchanged
@@ -88,9 +88,9 @@
 ---
 
 ### T-008: Verification Suite
-**Priority:** P0 (Gate for merge)  
-**Estimate:** 15 min  
-**Depends on:** T-005, T-006  
+**Priority:** P0 (Gate for merge)
+**Estimate:** 15 min
+**Depends on:** T-005, T-006
 
 - [ ] Run existing pytest suite: `uv run pytest tests/ -v`
 - [ ] Run backward-compat import check

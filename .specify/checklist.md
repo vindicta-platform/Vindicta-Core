@@ -1,7 +1,7 @@
 # Verification Checklist: Domain Model Refactoring
 
-**Spec Reference:** [spec.md](file:///c:/Users/bfoxt/.gemini/antigravity/playground/primordial-pulsar/Vindicta-Core/.specify/spec.md)  
-**Issue:** [#4](https://github.com/vindicta-platform/Vindicta-Core/issues/4)  
+**Spec Reference:** [spec.md](file:///c:/Users/bfoxt/.gemini/antigravity/playground/primordial-pulsar/Vindicta-Core/.specify/spec.md)
+**Issue:** [#4](https://github.com/vindicta-platform/Vindicta-Core/issues/4)
 
 ---
 
@@ -43,7 +43,7 @@
 - [ ] No test file modifications required
 
 ### Import Checks
-- [ ] Backward-compat models import: 
+- [ ] Backward-compat models import:
   ```
   python -c "from vindicta_core.models import *; print('OK')"
   ```

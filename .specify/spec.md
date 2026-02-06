@@ -1,10 +1,10 @@
 # Specification: Domain Model Refactoring
 
-**Feature ID:** CORE-004  
-**Issue:** [#4 - Domain Model Refactoring](https://github.com/vindicta-platform/Vindicta-Core/issues/4)  
-**Milestone:** v0.2.0 Refactor  
-**Priority:** P1  
-**Status:** Draft  
+**Feature ID:** CORE-004
+**Issue:** [#4 - Domain Model Refactoring](https://github.com/vindicta-platform/Vindicta-Core/issues/4)
+**Milestone:** v0.2.0 Refactor
+**Priority:** P1
+**Status:** Draft
 
 ---
 
@@ -32,8 +32,8 @@ Decompose the monolithic model file into **domain-organized subpackages** that:
 ## 3. User Stories
 
 ### US-01: Platform Developer
-> As a **platform developer** working on Vindicta-API,  
-> I want to **import only the Gas Tank models** I need,  
+> As a **platform developer** working on Vindicta-API,
+> I want to **import only the Gas Tank models** I need,
 > So that **my import statements are clean and my module dependencies are explicit**.
 
 **Acceptance Criteria:**
@@ -41,8 +41,8 @@ Decompose the monolithic model file into **domain-organized subpackages** that:
 - [ ] Importing gas tank models does NOT import dice/entropy models
 
 ### US-02: AI Engine Developer
-> As an **AI engine developer** working on Primordia-AI,  
-> I want to **import evaluation interfaces without pulling in unrelated protocols**,  
+> As an **AI engine developer** working on Primordia-AI,
+> I want to **import evaluation interfaces without pulling in unrelated protocols**,
 > So that **my dependency graph remains minimal and testable**.
 
 **Acceptance Criteria:**
@@ -50,8 +50,8 @@ Decompose the monolithic model file into **domain-organized subpackages** that:
 - [ ] No unnecessary transitive dependencies
 
 ### US-03: Maintainer
-> As a **codebase maintainer**,  
-> I want **models organized by domain (dice, gas_tank, base)**,  
+> As a **codebase maintainer**,
+> I want **models organized by domain (dice, gas_tank, base)**,
 > So that **I can navigate and modify related code without touching unrelated domains**.
 
 **Acceptance Criteria:**
@@ -60,8 +60,8 @@ Decompose the monolithic model file into **domain-organized subpackages** that:
 - [ ] File structure matches logical domain boundaries
 
 ### US-04: Backward Compatibility
-> As an **existing consumer** of `vindicta_core`,  
-> I want **current import paths to continue working**,  
+> As an **existing consumer** of `vindicta_core`,
+> I want **current import paths to continue working**,
 > So that **I don't have to update all my existing code immediately**.
 
 **Acceptance Criteria:**
@@ -172,6 +172,6 @@ Decompose the monolithic model file into **domain-organized subpackages** that:
 ### Mitigations Implemented
 
 - [ ] Root `models.py` re-exports all symbols with `__all__` list
-- [ ] Root `interfaces.py` re-exports all symbols with `__all__` list  
+- [ ] Root `interfaces.py` re-exports all symbols with `__all__` list
 - [ ] Each domain `__init__.py` has explicit `__all__` exports
 - [ ] All 29 existing tests pass without modification
