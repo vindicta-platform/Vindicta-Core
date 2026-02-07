@@ -35,7 +35,7 @@ classDiagram
     Match --> Turn : sequence
     Turn --> Phase : contains
     Phase --> Action : contains
-    
+
     class Army {
         +id: UUID
         +name: str
@@ -43,7 +43,7 @@ classDiagram
         +units: List[Unit]
         +points: int
     }
-    
+
     class Match {
         +id: UUID
         +players: List[Player]

@@ -1,8 +1,8 @@
 # Feature Specification: Event Sourcing Primitives
 
-**Feature Branch**: `040-event-sourcing`  
-**Created**: 2026-02-06  
-**Status**: Draft  
+**Feature Branch**: `040-event-sourcing`
+**Created**: 2026-02-06
+**Status**: Draft
 **Target**: Week 4 | **Repository**: Vindicta-Core
 
 ## User Scenarios & Testing
