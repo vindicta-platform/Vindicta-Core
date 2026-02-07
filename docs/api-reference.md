@@ -37,7 +37,7 @@ Abstract base for data access.
 class IRepository(ABC, Generic[T]):
     @abstractmethod
     async def get(self, id: UUID) -> T | None: ...
-    
+
     @abstractmethod
     async def save(self, entity: T) -> T: ...
 ```
