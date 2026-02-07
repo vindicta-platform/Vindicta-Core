@@ -8,12 +8,12 @@ Event sourcing foundation with immutable event storage and replay. Supports stat
 
 ## Technical Context
 
-**Language/Version**: Python 3.11  
-**Primary Dependencies**: Pydantic, SQLite  
-**Storage**: SQLite (append-only)  
-**Testing**: pytest  
-**Target Platform**: Vindicta-Core  
-**Project Type**: Backend library  
+**Language/Version**: Python 3.11
+**Primary Dependencies**: Pydantic, SQLite
+**Storage**: SQLite (append-only)
+**Testing**: pytest
+**Target Platform**: Vindicta-Core
+**Project Type**: Backend library
 
 ## Project Structure
 

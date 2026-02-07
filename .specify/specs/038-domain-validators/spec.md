@@ -1,8 +1,8 @@
 # Feature Specification: Domain Model Validators
 
-**Feature Branch**: `038-domain-validators`  
-**Created**: 2026-02-06  
-**Status**: Draft  
+**Feature Branch**: `038-domain-validators`
+**Created**: 2026-02-06
+**Status**: Draft
 **Target**: Week 2 | **Repository**: Vindicta-Core
 
 ## User Scenarios & Testing

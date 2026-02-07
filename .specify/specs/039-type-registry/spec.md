@@ -1,8 +1,8 @@
 # Feature Specification: Shared Type Registry
 
-**Feature Branch**: `039-type-registry`  
-**Created**: 2026-02-06  
-**Status**: Draft  
+**Feature Branch**: `039-type-registry`
+**Created**: 2026-02-06
+**Status**: Draft
 **Target**: Week 3 | **Repository**: Vindicta-Core
 
 ## User Scenarios & Testing

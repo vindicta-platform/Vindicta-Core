@@ -8,12 +8,12 @@ Comprehensive validation layer for domain models. Checks required fields, type c
 
 ## Technical Context
 
-**Language/Version**: Python 3.11  
-**Primary Dependencies**: Pydantic  
-**Storage**: N/A  
-**Testing**: pytest  
-**Target Platform**: Vindicta-Core  
-**Project Type**: Backend library  
+**Language/Version**: Python 3.11
+**Primary Dependencies**: Pydantic
+**Storage**: N/A
+**Testing**: pytest
+**Target Platform**: Vindicta-Core
+**Project Type**: Backend library
 
 ## Project Structure
 
