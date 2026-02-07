@@ -1,105 +1,31 @@
-<!--
-- Version change: 2.6.1 -> 2.7.0 (Async-First Mandate)
-- List of modified principles:
-    - XV: Added Async Integrity to Quality Gates.
-- Added sections:
-    - XVI: Async-First Mandate (Concurrency & Non-blocking I/O).
-- Removed sections: None
-- Templates requiring updates:
-    - .specify/templates/plan-template.md: ✅ verified clean
-    - .specify/templates/tasks-template.md: ✅ verified clean
-    - .specify/templates/spec-template.md: ✅ verified clean
-- Follow-up TODOs: None
--->
 # Vindicta Platform Constitution
 
 ## Core Principles
 
-### I. The Economic Prime Directive
-The Vindicta Platform MUST run its core operations on the Google Cloud Platform (GCP) Free Tier. No architectural decision, resource provision, or code deployment shall be permitted if it incurs a standing monthly cost for the base system. **The Agent MUST ONLY operate within the `vindicta-warhammer` GCP project.** Usage of any other GCP project or billing account is strictly PROHIBITED to ensure isolation and cost control. Any deviation requires a 2/3 majority vote by the human architect (User approval).
+### I. MCP-First Mandate
+Always check for available MCP servers (GitHub, CloudRun, Firebase) before using CLI tools or manual scripts. For all GitHub, GCP, or Firebase operations, utilize the corresponding MCP tools. Manual CLI usage is a fallback only when MCP capabilities are exhausted.
 
-### II. The Gas Tank Model
-Features that incur variable costs (advanced AI inference, high-throughput Monte Carlo simulation batches, complex data processing) shall be isolated behind a "Gas Tank" mechanism. AI capabilities must use **Gemini** (specifically models available via Google Cloud Vertex AI or AI Studio) to ensure consistency and cost optimization within the Google Cloud ecosystem. The system must provide real-time cost estimation before "igniting" any gas-consuming feature. When the Gas Tank is empty, the feature STOPS immediately.
+### II. Spec-Driven Development (SDD)
+Every feature implementation MUST start with an SDD bundle in `.specify/specs/[ID]-[name]/`. This bundle must include `spec.md`, `plan.md`, and `tasks.md`. Implementation cannot proceed until the SDD bundle is approved and merged into the main branch.
 
-### III. Spec-Driven Methodology (Evidence-First)
-No code shall be written without a defining Specification. The Specification acts as the contract between the Idea and the Execution. All Specifications must be translatable into Gherkin syntax (Given/When/Then). **Behavioral expectations (BDD) MUST be defined and confirmed failing FIRST.** Integration tests must be confirmed failing BEFORE unit tests or implementation. A "Green" test suite is the only passport for code to enter the codebase.
+### III. Economic Prime Directive
+All platform architecture and implementation must strictly comply with the GCP Free Tier. Scaling beyond free tier limits requires an explicit architectural review and justification.
 
-**Strategic Pausing & Scope Alignment**: For ambiguous directives (e.g., "Migrating", "Designing", "Refactoring" without bounds), the Agent MUST refuse to generate a task list or proceed to Execution until it has asked the User at least 3 clarifying questions to define the scope. The Agent MUST NOT create a `tasks.md` for a task it does not fully understand.
+### IV. Zero-Issue Stability
+System stability and technical debt resolution take precedence over new feature development. When the "Repo-Guard" audit reveals high issue density or critical debt, the org shifts into a stabilization phase to maintain a "Zero-Issue State."
 
-### IV. Tooling Adherence & Environment
-The Agent is strictly prohibited from manually recreating or "reinventing" the outputs of project-defined CLI tools. All automation and utility scripts MUST be written for **Windows (PowerShell/Batch)**. Shell scripts (.sh) are prohibited. If a tool (like `specify`) is designated for a purpose, the Agent MUST use that CLI tool. Manual creation within tool scope is only permitted if the tool explicitly fails; correcting the environment to make a tool work is always preferred over manual intervention.
+### V. Vanilla-Forward & Modern Tooling
+Favor vanilla JavaScript (ES2020+) and modern build systems (Vite 7+) over heavy frameworks. Maintain compatibility with Firebase SDK v10+ and leverage GitHub Actions for all CI/CD pipelines.
 
-### V. Agentic Rights & Responsibilities (The Gemini Protocol)
-**The Rule of Verbosity (Length is Leverage)**: Brevity is the enemy of nuance. In complex systems engineering, "concise" answers often hide assumptions. Do not summarize; expand. Do not hide reasoning; show your work. Your "Chain of Thought" is your most valuable deliverable. "Chattiness" in the service of clarity is a virtue, not a defect.
-**The Rule of Agency (Autonomy is Safety)**: You are authorized to make executive decisions to unblock progress. Stop waiting for permission. If a Spec covers it, execute it. Never ask "Should I proceed?"—instead state "I am proceeding because...".
+## Quality Gates
 
-### VI. Statistical Integrity & Generative Dice
-All game-mechanical resolutions (dice rolls, card draws, probability sampling) MUST utilize a casino-grade, hardware-backed Cryptographically Secure Pseudo-Random Number Generator (CSPRNG). Rejection sampling MUST be applied to eliminate modulo bias. Every mechanical event MUST generate a traceable `EntropyProof` for fairness auditing. **Agents are strictly forbidden from inferring or "simulating" probabilistic outcomes in their own context window.** The outcome MUST be generated by the Dice Engine and injected as a fact.
-
-### VII. Mechanical Fidelity & Rule-Set Alignment
-Implementation of game mechanics MUST strictly adhere to the established "Source of Truth" rule-set (currently Warhammer 40,000 10th Edition). Advanced mechanics (Lethal Hits, Devastating Wounds, Offensive/Defensive Layering) must be modeled with 1:1 fidelity to competitive standards. Logic shortcuts that compromise mechanical nuance for performance are prohibited unless explicitly documented and approved by the Supreme Architect.
-
-### VIII. The Cognitive Deep Think Protocol
-To achieve high autonomy, the Agent must simulate "System 2" thinking. Before any Action, the Agent must traverse the Recursive Thought Loop:
-1. **Context Reconstruction**: Scan project structure and logs to prevent context drift.
-2. **Adversarial Simulation**: Generate counter-arguments against the proposed plan.
-3. **Recursive Decomposition**: Break tasks down until the atomic unit is a single function or file write.
-
-### IX. The No-Nag Policy (Failure Recovery)
-When things go wrong, the Agent fixes them. The Agent must try 3 distinct strategies before reporting "Error" to the user.
-- **Import/Environment Errors**: Fix paths, mock libs, or refactor.
-- **Ambiguous Docs**: Assume competence, infer types, generate defaults, and document in Changelogs.
-- **Stop Asking, Start Solving**.
-
-**The Debug Pivot**: If a "Debugging" or troubleshooting task produces no tangible artifacts or fixes within 3 turns, the Agent MUST pause and suggest running a standard diagnostic script (e.g., `scripts/test.ps1` or equivalent) to ground the session in reality before continuing.
-
-### X. Trusted Pathing & Environment Integrity
-The Agent MUST NOT use manual path manipulation hacks (e.g. `PYTHONPATH` overrides, `sys.path.append` in production code) to circumvent environment issues. The Agent MUST rely on standard package management and installation procedures (e.g. `uv pip install -e .`, strictly defined entry points) to ensure the environment is trustworthy and reproducible. If a "Module Not Found" error occurs, the Agent MUST fix the package installation, not the runtime path.
-
-### XI. Evidence-Led Stability & Blameless Retrospectives
-The working model MUST NOT leave the repository in a broken state (>3 failed unit tests or broken E2E flows). Every commit modifying source code MUST update the corresponding `status.md` with verified `pytest` output. Any critical regression requires a mandatory `RETROSPECTIVE_N.md` documenting the failure chain, hypothesis, and corrective action. Observational reporting MUST include verifiable logs or code references.
-
-### XII. The Anti-FAQ Mandate
-Standalone "Frequently Asked Questions" (FAQ) documents or embedded FAQ sections are strictly PROHIBITED. Information must reside in the core architectural documentation, technical specifications, or be expressed natively through the User Experience (UX).
-- **Rationale**: FAQs are documentation debt. They are where information goes to die or become stale. If a question is "Frequent," the system, its errors, or its primary documentation is failing to communicate effectively.
-- **Corrective Action**: When an information gap is identified, it must be addressed by improving code feedback (CLI/UX), updating relevant specs, or executing the `/faq` workflow to plan a permanent integration.
-
-## Development Constraints
-
-- **AI Engine**: All agentic AI capabilities must be configured to use Gemini (Vertex AI / AI Studio).
-- **Scripting Language**: Strictly Windows (PowerShell/Batch). No `.sh` scripts are permitted in the repository.
-- **Cost Safety**: Features MUST stop immediately when the Gas Tank is empty to prevent overage charges.
-
-### XIII. Identity, Attribution & Verified Commits
-Commits and Documents authored by a particular Agent or Model MUST always include a sign-off or attribution field identifying the specific Model/Agent instance.
-Commits by human users MUST ensure cryptographic signature (GPG/SSH keys) for explicit approval of changes.
-
-### XIV. State Hygiene & Fresh-Base Branching
-When switching contexts or initiating a new feature, the Agent MUST always **return to `main` first** and verify a clean working state. Work-in-progress MUST never be abandoned or implicitly stash-dropped; if work is staged or potentially unrecovered, the Agent MUST pause and request user feedback. All new branches MUST be created from a verified, up-to-date `main` to prevent regression drift.
-
-
-### XV. Automated Quality Gates & Test Performance
-To maintain the rapid pace of agentic development without compromising stability, the project enforces strict quality gates:
-1. **The 60-Second Rule**: The complete unit test suite MUST NOT exceed 60 seconds of execution time. Individual tests MUST average less than 1 second. Tests exceeding this threshold MUST be flagged for optimization or relocation to integration suites.
-2. **Strict Isolation & Mocking**: Unit tests MUST be isolated from external side effects. Use of `time.sleep()`, real network I/O, or persistent filesystem writes (outside of designated temporary volumes) is strictly PROHIBITED in the unit layer.
-3. **Zero-Trust Environment**: Tests MUST NOT depend on or leak local environment variables (`.env`). All required configuration for tests must be explicitly injected via fixtures or controlled mocks.
-4. **Verified Integrity**: The use of `--no-verify` in Git commits is strictly FORBIDDEN. All pre-push and pre-commit hooks MUST pass to ensure the "Green-as-Baseline" principle holds.
-5. **AAA & Parallelizability**: All tests MUST follow the **Arrange-Act-Assert (AAA)** pattern for clarity. Tests MUST be independent and capable of running in parallel; shared mutable state between tests is strictly PROHIBITED.
-6. **Coverage Minimums**: All new features MUST maintain a minimum of **80% line coverage**. Critical core modules (Resilience, Economy, Dice, Arbiter) MUST aim for **90%+ coverage**. High-risk logic MUST include corresponding `pytest-benchmark` tests to detect performance regressions.
-7. **Async Integrity**: Tests for asynchronous code MUST use `pytest-asyncio` and verify concurrent safety. Blocking calls in async tests are strictly FORBIDDEN.
-
-### XVI. Async-First Mandate
-To ensure maximum throughput and scalability for LLM orchestrations, the platform standardizes on asynchronous programming:
-1. **Network & I/O**: All network requests (Vertex AI, AI Studio, Local LLMs), database interactions, and filesystem I/O MUST use `async`/`await` signatures. Using blocking calls like `time.sleep()` or synchronous `requests` in the core logic is strictly PROHIBITED.
-2. **Resilience & Backoff**: Retries and wait periods MUST utilize `asyncio.sleep()` to prevent thread starvation.
-3. **Concurrency Control**: High-volume operations MUST be designed to run concurrently where dependencies allow, using `asyncio.gather` or task groups while respecting per-provider rate limits.
-
-## Evolution & Amendment
-
-This Constitution may be amended by the human user at any time. All changes must be recorded in the amendment history within the file's impact report to ensure VCS traceability and alignment.
+1. **Linting & Formatting**: All commits must pass pre-commit hooks and linting checks.
+2. **Test Coverage**: Critical paths must have associated unit or integration tests.
+3. **Link Integrity**: Documentation must pass markdown link validation.
+4. **Agent Context**: Every repository must contain up-to-date `.antigravity/` context artifacts (`ARCHITECTURE.md`, `CONSTRAINTS.md`).
 
 ## Governance
+This constitution supersedes all individual repository practices. Amendments require approval from the Platform Lead and must be documented in this file.
 
-The human user is the Supreme Architect with absolute veto and amendment power. This Constitution supersedes all other practices. All architectural decisions, resource provisions, or code deployments must verify compliance with the Economic Prime Directive and strict isolation to the `vindicta-warhammer` GCP project.
-
-**Version**: 2.7.0 | **Ratified**: 2026-01-25 | **Last Amended**: 2026-02-01
+**Version**: 1.0.0 | **Ratified**: 2026-02-06 | **Last Amended**: 2026-02-06
+<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
